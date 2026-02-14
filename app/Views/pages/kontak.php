@@ -4,7 +4,7 @@
 
 <!-- Hero Section -->
 <section class="d-flex align-items-center justify-content-center text-white text-center position-relative"
-    style="height: 60vh; background: linear-gradient(rgba(15, 81, 50, 0.85), rgba(15, 81, 50, 0.7)), url('/asset/images/depan-masjid2.jpg') center/cover no-repeat;">
+    style="height: 60vh; background: linear-gradient(rgba(19, 20, 20, 0.85), rgba(15, 81, 50, 0.7)), url('/asset/images/depan-masjid2.jpg') center/cover no-repeat;">
     <div class="container position-relative" style="z-index: 2;" data-aos="fade-down">
         <h1 class="display-3 fw-bold mb-3">Hubungi Kami</h1>
         <p class="lead mb-0 fs-4">Kami Siap Melayani Jamaah & Masyarakat</p>
@@ -150,7 +150,7 @@
     </div>
 
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126907.02534573138!2d106.77259640942542!3d-6.284102607519656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1ec2422b423%3A0x2c04622490d18b62!2sMasjid%20Istiqlal!5e0!3m2!1sid!2sid!4v1707567891234!5m2!1sid!2sid"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.1837829880924!2d112.52938027500255!3d-7.554929792458816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7875e34bda6197%3A0xaf164f4c26c163b9!2sMasjid%20An%20Namiroh%20Firdaus!5e0!3m2!1sid!2sid!4v1771065570852!5m2!1sid!2sid"
         width="100%" height="450" style="border:0; filter: grayscale(20%);" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>

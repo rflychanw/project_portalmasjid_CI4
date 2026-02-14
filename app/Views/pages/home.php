@@ -64,7 +64,7 @@
     </button>
 </section>
 
-<!-- Prayer Times Section (Jadwal Sholat) -->
+<!-- Prayer Times Section (Jadwal Sholat Hari Ini) -->
 <section id="jadwal" class="py-5 bg-masjid bg-light position-relative">
     <div class="container position-relative" style="margin-top: -80px; z-index: 10;" data-aos="fade-up">
         <div class="card shadow rounded-4 border-0">
@@ -72,24 +72,36 @@
                 <div class="text-center mb-4">
                     <h2 class="fw-bold text-success">Jadwal Sholat Hari Ini</h2>
                     <p class="text-muted fs-5"><i class="bi bi-calendar-event me-2"></i><?= date('l, d F Y'); ?></p>
+                    <span class="badge bg-success bg-opacity-10 text-white rounded-pill px-3 py-2">
+                        <i class="bi bi-clock me-1"></i> Waktu Indonesia Barat (WIB)
+                    </span>
                 </div>
                 <div class="row justify-content-center text-center g-3">
                     <?php
                     $jadwal = [
-                        ['name' => 'Subuh', 'time' => '04:42'],
-                        ['name' => 'Dzuhur', 'time' => '12:08'],
-                        ['name' => 'Ashar', 'time' => '15:28'],
-                        ['name' => 'Maghrib', 'time' => '18:15'],
-                        ['name' => 'Isya', 'time' => '19:28'],
+                        ['name' => 'Imsak', 'time' => '04:25 WIB', 'icon' => 'bi-moon-stars'],
+                        ['name' => 'Subuh', 'time' => '04:35 WIB', 'icon' => 'bi-sunrise'],
+                        ['name' => 'Dzuhur', 'time' => '11:45 WIB', 'icon' => 'bi-sun'],
+                        ['name' => 'Ashar', 'time' => '15:05 WIB', 'icon' => 'bi-brightness-high'],
+                        ['name' => 'Maghrib', 'time' => '17:50 WIB', 'icon' => 'bi-sunset'],
+                        ['name' => 'Isya', 'time' => '19:00 WIB', 'icon' => 'bi-moon'],
                     ];
                     foreach ($jadwal as $i => $solat): ?>
-                        <div class="col-4 col-md-2" data-aos="fade-up" data-aos-delay="<?= $i * 100; ?>">
-                            <div class="p-3 rounded-3 border hover-card bg-light">
-                                <h6 class="text-success fw-bold text-uppercase mb-2"><?= $solat['name']; ?></h6>
+                        <div class="col-4 col-md-2" data-aos="fade-up" data-aos-delay="<?= $i * 80; ?>">
+                            <div class="p-3 rounded-4 border hover-card bg-light text-center">
+                                <i class="bi <?= $solat['icon']; ?> text-success fs-4 mb-2 d-block"></i>
+                                <h6 class="text-success fw-bold text-uppercase mb-2 small"><?= $solat['name']; ?></h6>
                                 <h4 class="fw-bold text-dark mb-0"><?= $solat['time']; ?></h4>
                             </div>
                         </div>
                     <?php endforeach; ?>
+                </div>
+
+                <!-- Link ke halaman jadwal lengkap -->
+                <div class="text-center mt-4">
+                    <a href="/jadwal-sholat" class="btn btn-outline-success rounded-pill px-4 fw-bold">
+                        <i class="bi bi-calendar-week me-2"></i>Lihat Jadwal Lengkap 1 Bulan
+                    </a>
                 </div>
             </div>
         </div>

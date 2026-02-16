@@ -88,6 +88,7 @@
                     <p><a href="/profil" class="text-white" style="text-decoration: none;">Profil</a></p>
                     <p><a href="/kegiatan" class="text-white" style="text-decoration: none;">Kegiatan</a></p>
                     <p><a href="/kontak" class="text-white" style="text-decoration: none;">Kontak</a></p>
+                    <p><a href="/admin/login" class="text-white" style="text-decoration: none;">Login Admin</a></p>
                 </div>
 
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">

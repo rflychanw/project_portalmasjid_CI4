@@ -27,7 +27,7 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 777 /var/www/html/writable
 
 # 6. Ekspos Port
-EXPOSE 80
+EXPOSE 8080
 
 # 7. Jalankan PHP-FPM dan Nginx
 # Menggunakan 'nginx -g daemon off' sebagai proses utama agar container tetap hidup

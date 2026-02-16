@@ -1,3 +1,29 @@
+<?php
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   
+        'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+	
+	// variabel pecahkan 0 = tanggal
+	// variabel pecahkan 1 = bulan
+	// variabel pecahkan 2 = tahun
+ 
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+?>
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
@@ -71,7 +97,7 @@
             <div class="card-body p-4 p-md-5 bg-white rounded-4">
                 <div class="text-center mb-4">
                     <h2 class="fw-bold text-success">Jadwal Sholat Hari Ini</h2>
-                    <p class="text-muted fs-5"><i class="bi bi-calendar-event me-2"></i><?= date('l, d F Y'); ?></p>
+                    <p class="text-muted fs-5"><i class="bi bi-calendar-event me-2"></i><?= tgl_indo(date('Y-m-d')); ?></p>
                     <span class="badge bg-success bg-opacity-10 text-white rounded-pill px-3 py-2">
                         <i class="bi bi-clock me-1"></i> Waktu Indonesia Barat (WIB)
                     </span>

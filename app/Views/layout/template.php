@@ -34,7 +34,8 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="/">
-                <i class="bi bi-moon-stars-fill me-2"></i> Masjid An Namiroh Firdaus
+                <i class="bi bi-moon-stars-fill me-2 d-none d-lg-inline"></i><span class="d-none d-lg-inline">Masjid
+                </span>An Namiroh Firdaus
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

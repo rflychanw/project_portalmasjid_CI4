@@ -125,7 +125,7 @@ class Home extends BaseController
                                 <li>Pelajaran (Ibroh) yang dapat diambil</li>
                              </ul>
                              <p>Kajian ini dilaksanakan secara rutin setiap pekan dan terbuka untuk umum. Mari ajak keluarga dan sahabat untuk hadir di majelis ilmu ini.</p>',
-                'gambar' => "/asset/images/kajian_masjid.png",
+                'gambar' => "/asset/images/kajian_masjid.webp",
                 'fallback' => "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=400&q=80",
                 'hari' => "Ahad",
                 'jam' => "Ba'da Subuh",
@@ -151,7 +151,7 @@ class Home extends BaseController
                                 <li>Melatih kesabaran dan ketenangan emosi</li>
                                 <li>Membangun karakter disiplin</li>
                              </ul>',
-                'gambar' => "/asset/images/olahraga.png",
+                'gambar' => "/asset/images/olahraga.webp",
                 'fallback' => "",
                 'hari' => "Sabtu",
                 'jam' => "08:00 WIB",
@@ -176,7 +176,7 @@ class Home extends BaseController
                                 <li>Hukum Tajwid Dasar</li>
                                 <li>Kelancaran Membaca</li>
                              </ul>',
-                'gambar' => "/asset/images/quran.jpg",
+                'gambar' => "/asset/images/quran.webp",
                 'fallback' => "https://plus.unsplash.com/premium_photo-1661775756810-82dbd209fc95?auto=format&fit=crop&w=400&q=80",
                 'hari' => "Senin-Kamis",
                 'jam' => "16:00 WIB",
@@ -202,7 +202,7 @@ class Home extends BaseController
                                 <li>Tidak sedang mengonsumsi obat-obatan tertentu</li>
                                 <li>Tidur cukup minimal 5 jam sebelum donor</li>
                              </ul>',
-                'gambar' => "/asset/images/kasih-sayang.jpg",
+                'gambar' => "/asset/images/kasih-sayang.webp",
                 'fallback' => "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=400&q=80",
                 'hari' => "3 Bulan Sekali",
                 'jam' => "09:00 WIB",
@@ -222,7 +222,7 @@ class Home extends BaseController
                              <p>Kami membuka kesempatan seluas-luasnya bagi para donatur yang ingin menyisihkan sebagian rezekinya untuk program ini. Donasi dapat berupa uang tunai maupun makanan siap santap.</p>
                              <p>"Sedekah itu dapat menghapus dosa sebagaimana air itu memadamkan api." (HR. At-Tirmidzi)</p>
                              <p>Semoga Allah SWT memberkahi rezeki kita semua dan menerima amal ibadah kita.</p>',
-                'gambar' => "/asset/images/jumaat_berkah.png",
+                'gambar' => "/asset/images/jumaat_berkah.webp",
                 'fallback' => "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80",
                 'hari' => "Jumat",
                 'jam' => "11:30 WIB",
@@ -255,7 +255,7 @@ class Home extends BaseController
                                 <li>Penerimaan dan penyaluran Zakat, Infaq, dan Shodaqoh</li>
                              </ul>
                              <p>Kami mengajak seluruh jamaah untuk turut berpartisipasi dalam kegiatan-kegiatan tersebut, baik sebagai peserta maupun donatur. Mari kita jadikan Ramadhan tahun ini lebih baik dari tahun-tahun sebelumnya.</p>',
-                'img' => '/asset/images/depan-masjid.jpg' // Using existing image for now
+                'img' => '/asset/images/depan-masjid.webp' // Using existing image for now
             ],
             [
                 'slug' => 'santunan-yatim-piatu',
@@ -266,7 +266,7 @@ class Home extends BaseController
                 'konten' => '<p>Alhamdulillah, berkat dukungan para donatur dan jamaah sekalian, telah terlaksana kegiatan santunan bulanan untuk 50 anak yatim dan dhuafa di lingkungan sekitar masjid pada hari Ahad, 25 Februari 2024.</p>
                              <p>Kegiatan ini merupakan program rutin Divisi Sosial Masjid Nurul Iman yang bertujuan untuk meringankan beban saudara-saudara kita yang membutuhkan. Selain uang tunai, paket sembako juga dibagikan kepada para penerima manfaat.</p>
                              <p>"Barangsiapa yang memelihara anak yatim di tengah kaum muslimin, memberinya makan dan minum, maka Allah pastikan baginya surga, kecuali jika ia melakukan dosa yang tidak bisa diampuni." (HR. Tirmidzi). Semoga Allah membalas kebaikan para donatur dengan pahala yang berlipat ganda.</p>',
-                'img' => '/asset/images/kasih-sayang.jpg'
+                'img' => '/asset/images/kasih-sayang.webp'
             ],
             [
                 'slug' => 'penerimaan-santri-tpa',
@@ -284,7 +284,7 @@ class Home extends BaseController
                                 <li>Adab dan Akhlak Sehari-hari</li>
                              </ul>
                              <p>Pendaftaran dibuka mulai tanggal 20 Februari hingga 30 Maret 2024. Formulir pendaftaran dapat diambil di sekretariat TPA setiap sore hari kerja (16.00 - 17.30 WIB).</p>',
-                'img' => '/asset/images/quran.jpg'
+                'img' => '/asset/images/quran.webp'
             ]
         ];
     }

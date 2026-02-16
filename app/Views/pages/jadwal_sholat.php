@@ -4,7 +4,7 @@
 
 <!-- Hero Section -->
 <section class="d-flex align-items-center justify-content-center text-white text-center position-relative"
-    style="height: 50vh; min-height: 400px; background: linear-gradient(rgba(15, 81, 50, 0.9), rgba(15, 81, 50, 0.7)), url('/asset/images/sholat-jamaah.jpg') center/cover no-repeat;">
+    style="height: 50vh; min-height: 400px; background: linear-gradient(rgba(15, 81, 50, 0.9), rgba(15, 81, 50, 0.7)), url('/asset/images/sholat-jamaah.webp') center/cover no-repeat;">
     <div class="position-absolute top-0 start-0 w-100 h-100"
         style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px; opacity: 0.08;">
     </div>
@@ -67,7 +67,8 @@
                     <i class="bi bi-calendar-week display-1 text-success opacity-25 mb-3 d-block"></i>
                     <h4 class="fw-bold text-dark">Jadwal Belum Ditampilkan</h4>
                     <p class="text-muted mb-0">Silakan pilih provinsi dan kabupaten/kota di atas, lalu klik tombol
-                        <strong>Tampilkan</strong>.</p>
+                        <strong>Tampilkan</strong>.
+                    </p>
                 </div>
             </div>
         </div>

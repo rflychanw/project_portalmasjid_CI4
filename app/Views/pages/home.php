@@ -1,27 +1,28 @@
 <?php
-function tgl_indo($tanggal){
-	$bulan = array (
-		1 =>   
-        'Januari',
-		'Februari',
-		'Maret',
-		'April',
-		'Mei',
-		'Juni',
-		'Juli',
-		'Agustus',
-		'September',
-		'Oktober',
-		'November',
-		'Desember'
-	);
-	$pecahkan = explode('-', $tanggal);
-	
-	// variabel pecahkan 0 = tanggal
-	// variabel pecahkan 1 = bulan
-	// variabel pecahkan 2 = tahun
- 
-	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+function tgl_indo($tanggal)
+{
+    $bulan = array(
+        1 =>
+            'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $pecahkan = explode('-', $tanggal);
+
+    // variabel pecahkan 0 = tanggal
+    // variabel pecahkan 1 = bulan
+    // variabel pecahkan 2 = tahun
+
+    return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
 }
 ?>
 <?= $this->extend('layout/template'); ?>
@@ -39,7 +40,7 @@ function tgl_indo($tanggal){
     <div class="carousel-inner">
         <!-- Slide 1 -->
         <div class="carousel-item active" style="height: 100vh; min-height: 600px;">
-            <img src="/asset/images/depan-masjid.jpg" class="d-block w-100 h-100"
+            <img src="/asset/images/depan-masjid.webp" class="d-block w-100 h-100"
                 style="object-fit: cover; filter: brightness(0.6);" alt="Masjid Interior">
             <div class="carousel-caption d-flex flex-column justify-content-center h-100 top-0">
                 <div class="container" data-aos="fade-up" data-aos-duration="1200">
@@ -53,7 +54,7 @@ function tgl_indo($tanggal){
         </div>
         <!-- Slide 2 -->
         <div class="carousel-item" style="height: 100vh; min-height: 600px;">
-            <img src="/asset/images/depan-masjid2.jpg" class="d-block w-100 h-100"
+            <img src="/asset/images/depan-masjid2.webp" class="d-block w-100 h-100"
                 style="object-fit: cover; filter: brightness(0.6);" alt="Masjid Architecture">
             <div class="carousel-caption d-flex flex-column justify-content-center h-100 top-0">
                 <div class="container">
@@ -67,7 +68,7 @@ function tgl_indo($tanggal){
         </div>
         <!-- Slide 3 -->
         <div class="carousel-item" style="height: 100vh; min-height: 600px;">
-            <img src="/asset/images/quran.jpg" class="d-block w-100 h-100"
+            <img src="/asset/images/quran.webp" class="d-block w-100 h-100"
                 style="object-fit: cover; filter: brightness(0.6);" alt="Ngaji Anak">
             <div class="carousel-caption d-flex flex-column justify-content-center h-100 top-0">
                 <div class="container">
@@ -97,7 +98,8 @@ function tgl_indo($tanggal){
             <div class="card-body p-4 p-md-5 bg-white rounded-4">
                 <div class="text-center mb-4">
                     <h2 class="fw-bold text-success">Jadwal Sholat Hari Ini</h2>
-                    <p class="text-muted fs-5"><i class="bi bi-calendar-event me-2"></i><?= tgl_indo(date('Y-m-d')); ?></p>
+                    <p class="text-muted fs-5"><i class="bi bi-calendar-event me-2"></i><?= tgl_indo(date('Y-m-d')); ?>
+                    </p>
                     <span class="badge bg-success bg-opacity-10 text-white rounded-pill px-3 py-2">
                         <i class="bi bi-clock me-1"></i> Waktu Indonesia Barat (WIB)
                     </span>
@@ -168,7 +170,7 @@ function tgl_indo($tanggal){
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
                 <div class="position-relative">
-                    <img src="/asset/images/kasih-sayang.jpg" alt="About Masjid"
+                    <img src="/asset/images/kasih-sayang.webp" alt="About Masjid"
                         class="img-fluid rounded-4 shadow-lg w-100" style="min-height: 400px; object-fit: cover;">
                     <div class="position-absolute bottom-0 start-0 bg-white p-4 rounded-top-end-4 shadow m-3">
                         <h1 class="text-success fw-bold display-4 mb-0">25</h1>
@@ -280,7 +282,7 @@ function tgl_indo($tanggal){
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="card border-0 shadow-sm h-100 feature-card rounded-4 overflow-hidden">
                     <div class="position-relative">
-                        <img src="/asset/images/kajian_masjid.png" class="card-img-top" alt="Kajian"
+                        <img src="/asset/images/kajian_masjid.webp" class="card-img-top" alt="Kajian"
                             onerror="this.src='https://images.unsplash.com/photo-1576764402964-b8575080c541?auto=format&fit=crop&w=400&q=80'"
                             style="height: 220px; object-fit: cover;">
                         <span
@@ -300,7 +302,7 @@ function tgl_indo($tanggal){
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="card border-0 shadow-sm h-100 feature-card rounded-4 overflow-hidden">
                     <div class="position-relative">
-                        <img src="/asset/images/jumaat_berkah.png" class="card-img-top" alt="Jumat Berkah"
+                        <img src="/asset/images/jumaat_berkah.webp" class="card-img-top" alt="Jumat Berkah"
                             onerror="this.src='https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80'"
                             style="height: 220px; object-fit: cover;">
                         <span
@@ -353,19 +355,19 @@ function tgl_indo($tanggal){
         </div>
         <div class="row g-3" data-aos="zoom-in">
             <div class="col-md-8">
-                <img src="/asset/images/sholat-jamaah.jpg"
+                <img src="/asset/images/sholat-jamaah.webp"
                     class="img-fluid rounded-4 h-100 w-100 object-fit-cover hover-card shadow-sm" alt="Galeri 1"
                     style="min-height: 300px; object-fit: cover;">
             </div>
             <div class="col-md-4">
                 <div class="row g-3 h-100">
                     <div class="col-12 h-50">
-                        <img src="/asset/images/kajian_masjid.png"
+                        <img src="/asset/images/kajian_masjid.webp"
                             class="img-fluid rounded-4 h-100 w-100 object-fit-cover hover-card shadow-sm" alt="Galeri 2"
                             style="object-fit: cover;">
                     </div>
                     <div class="col-12 h-50">
-                        <img src="/asset/images/jumaat_berkah.png"
+                        <img src="/asset/images/jumaat_berkah.webp"
                             class="img-fluid rounded-4 h-100 w-100 object-fit-cover hover-card shadow-sm" alt="Galeri 3"
                             style="object-fit: cover;">
                     </div>

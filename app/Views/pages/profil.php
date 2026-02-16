@@ -4,7 +4,7 @@
 
 <!-- Hero Section -->
 <section class="d-flex align-items-center justify-content-center text-white text-center position-relative"
-    style="height: 60vh; background: linear-gradient(rgba(19, 20, 20, 0.85), rgba(15, 81, 50, 0.7)), url('/asset/images/depan-masjid3.jpg') center/cover repeat;">
+    style="height: 60vh; background: linear-gradient(rgba(19, 20, 20, 0.85), rgba(15, 81, 50, 0.7)), url('/asset/images/depan-masjid3.webp') center/cover repeat;">
     <div class="container position-relative" style="z-index: 2;" data-aos="fade-down">
         <h1 class="display-3 fw-bold mb-3">Tentang Kami</h1>
         <p class="lead mb-0 fs-4">Mengenal Lebih Dekat Masjid An Namiroh Firdaus</p>
@@ -23,7 +23,7 @@
         <div class="row align-items-center mb-5">
             <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left">
                 <div class="position-relative">
-                    <img src="/asset/images/depan-masjid2.jpg" alt="Sejarah Masjid"
+                    <img src="/asset/images/depan-masjid2.webp" alt="Sejarah Masjid"
                         class="img-fluid rounded-4 shadow-lg w-100 object-fit-cover" style="min-height: 400px;">
                     <div
                         class="position-absolute bottom-0 end-0 bg-white p-4 rounded-top-start-4 shadow m-3 d-none d-md-block">

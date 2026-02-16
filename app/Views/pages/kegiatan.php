@@ -42,7 +42,7 @@ function renderCard($item)
 
 <!-- Hero Section -->
 <section class="d-flex align-items-center justify-content-center text-white text-center position-relative"
-    style="height: 60vh; background: linear-gradient(rgba(19, 20, 20, 0.85), rgba(15, 81, 50, 0.7)), url('/asset/images/quran.jpg') center/cover no-repeat;">
+    style="height: 60vh; background: linear-gradient(rgba(19, 20, 20, 0.85), rgba(15, 81, 50, 0.7)), url('/asset/images/quran.webp') center/cover no-repeat;">
     <div class="container position-relative" style="z-index: 2;" data-aos="fade-down">
         <h1 class="display-3 fw-bold mb-3">Agenda & Kegiatan</h1>
         <p class="lead mb-0 fs-4">Mengisi Hari dengan Ilmu, Iman, dan Amal</p>

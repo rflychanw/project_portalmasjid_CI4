@@ -1,6 +1,6 @@
 FROM php:8.2-fpm-bookworm
 
-# 1. Install Nginx dan dependencies PHP
+# 1. Install Nginx & Dependencies
 RUN apt-get update && apt-get install -y \
     nginx \
     libicu-dev \
@@ -10,25 +10,22 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install intl mysqli \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# 2. Copy konfigurasi Nginx yang kita buat tadi
+# 2. Copy config Nginx
 COPY nginx.conf /etc/nginx/sites-available/default
 
-# 3. Set Working Directory
+# 3. Setup Project
 WORKDIR /var/www/html
-
-# 4. Copy source code
 COPY . .
-
-# 5. Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
-# 6. Set Permission untuk CI4
+# 4. Permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 777 /var/www/html/writable
 
-# 7. Expose port 80
+# 5. Port
 EXPOSE 80
 
-# 8. Jalankan PHP-FPM dan Nginx bersamaan
-CMD php-fpm -D && nginx -g "daemon off;"
+# 6. CMD yang lebih kuat untuk Railway
+# Kita jalankan php-fpm di background, lalu Nginx di foreground agar log muncul
+CMD php-fpm -D; nginx -g "daemon off;"

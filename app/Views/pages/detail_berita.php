@@ -43,7 +43,7 @@
                 <!-- Featured Image -->
                 <div class="mb-5 overflow-hidden rounded-4 shadow-sm" data-aos="fade-up">
                     <img src="<?= $berita['img']; ?>" class="img-fluid w-100 object-fit-cover"
-                        alt="<?= $berita['judul']; ?>" style="max-height: 500px;">
+                        alt="<?= $berita['judul']; ?>" style="max-height: 500px;" loading="lazy">
                 </div>
 
                 <!-- Content -->
@@ -93,7 +93,7 @@
                         <div class="row g-0 h-100">
                             <div class="col-4">
                                 <img src="<?= $item['img']; ?>" class="img-fluid rounded-start h-100 object-fit-cover"
-                                    alt="...">
+                                    alt="..." loading="lazy">
                             </div>
                             <div class="col-8">
                                 <div class="card-body py-2 pe-2 ps-3 d-flex flex-column h-100 justify-content-center">

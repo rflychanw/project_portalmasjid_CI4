@@ -27,7 +27,7 @@
                     <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-card">
                         <div class="position-relative">
                             <img src="<?= $item['img']; ?>" class="card-img-top object-fit-cover"
-                                alt="<?= $item['judul']; ?>" style="height: 250px;">
+                                alt="<?= $item['judul']; ?>" style="height: 250px;" loading="lazy">
                             <span class="position-absolute top-0 end-0 m-3 badge bg-success fs-6 shadow-sm">Berita</span>
                         </div>
                         <div class="card-body p-4 d-flex flex-column">

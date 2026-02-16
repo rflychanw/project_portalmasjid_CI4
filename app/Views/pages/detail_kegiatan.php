@@ -97,7 +97,8 @@
                     <div class="card border-0 shadow-sm rounded-4 mb-4" data-aos="fade-left" data-aos-delay="100">
                         <div class="card-body p-4 text-center">
                             <img src="https://ui-avatars.com/api/?name=<?= urlencode($kegiatan['pemateri']); ?>&background=random&size=128"
-                                class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Pemateri">
+                                class="rounded-circle mb-3 shadow-sm" width="80" height="80" alt="Pemateri"
+                                loading="lazy">
                             <h5 class="fw-bold mb-1">
                                 <?= $kegiatan['pemateri']; ?>
                             </h5>
@@ -120,7 +121,7 @@
                                             class="d-flex align-items-center text-decoration-none group-hover-bg p-2 rounded-3 hover-bg-light">
                                             <img src="<?= $item['gambar']; ?>" class="rounded-3 object-fit-cover me-3"
                                                 width="60" height="60" alt="<?= $item['judul']; ?>"
-                                                onerror="this.src='<?= $item['fallback']; ?>'">
+                                                onerror="this.src='<?= $item['fallback']; ?>'" loading="lazy">
                                             <div>
                                                 <h6 class="fw-bold text-dark mb-1 small">
                                                     <?= $item['judul']; ?>

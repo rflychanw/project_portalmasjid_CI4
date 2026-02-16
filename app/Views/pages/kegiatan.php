@@ -15,7 +15,7 @@ function renderCard($item)
                 <img src="' . $item['gambar'] . '" class="card-img-top object-fit-cover"
                     alt="' . $item['judul'] . '"
                     onerror="this.src=\'' . $item['fallback'] . '\'"
-                    style="height: 250px;">
+                    style="height: 250px;" loading="lazy">
                 <span class="position-absolute top-0 end-0 m-3 badge bg-' . $item['badge_color'] . ' ' . $badgeTextClass . ' fs-6 shadow-sm">
                     <i class="bi ' . $item['badge_icon'] . ' me-1"></i> ' . $item['badge'] . '
                 </span>
@@ -28,7 +28,7 @@ function renderCard($item)
                 <h4 class="card-title fw-bold mb-2"><a href="/kegiatan/' . $item['slug'] . '" class="text-dark text-decoration-none stretched-link">' . $item['judul'] . '</a></h4>
                 <p class="card-text text-muted mb-4 small">' . $item['deskripsi'] . '</p>
                 <div class="d-flex align-items-center mt-auto border-top pt-3">
-                     <img src="https://ui-avatars.com/api/?name=' . urlencode($item['pemateri']) . '&background=random" class="rounded-circle me-3" width="40" height="40" alt="Avatar">
+                     <img src="https://ui-avatars.com/api/?name=' . urlencode($item['pemateri']) . '&background=random" class="rounded-circle me-3" width="40" height="40" alt="Avatar" loading="lazy">
                     <div>
                         <h6 class="fw-bold mb-0 small">' . $item['pemateri'] . '</h6>
                         <small class="text-muted">' . $item['lokasi'] . '</small>

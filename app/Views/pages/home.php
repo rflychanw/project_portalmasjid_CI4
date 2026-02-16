@@ -41,7 +41,7 @@ function tgl_indo($tanggal)
         <!-- Slide 1 -->
         <div class="carousel-item active" style="height: 100vh; min-height: 600px;">
             <img src="/asset/images/depan-masjid.webp" class="d-block w-100 h-100"
-                style="object-fit: cover; filter: brightness(0.6);" alt="Masjid Interior">
+                style="object-fit: cover; filter: brightness(0.6);" alt="Masjid Interior" loading="eager">
             <div class="carousel-caption d-flex flex-column justify-content-center h-100 top-0">
                 <div class="container" data-aos="fade-up" data-aos-duration="1200">
                     <h1 class="display-3 fw-bold mb-3">Selamat Datang di Masjid An Namiroh Firdaus</h1>
@@ -55,7 +55,7 @@ function tgl_indo($tanggal)
         <!-- Slide 2 -->
         <div class="carousel-item" style="height: 100vh; min-height: 600px;">
             <img src="/asset/images/depan-masjid2.webp" class="d-block w-100 h-100"
-                style="object-fit: cover; filter: brightness(0.6);" alt="Masjid Architecture">
+                style="object-fit: cover; filter: brightness(0.6);" alt="Masjid Architecture" loading="lazy">
             <div class="carousel-caption d-flex flex-column justify-content-center h-100 top-0">
                 <div class="container">
                     <h1 class="display-3 fw-bold mb-3">Pusat Peradaban Umat</h1>
@@ -69,7 +69,7 @@ function tgl_indo($tanggal)
         <!-- Slide 3 -->
         <div class="carousel-item" style="height: 100vh; min-height: 600px;">
             <img src="/asset/images/quran.webp" class="d-block w-100 h-100"
-                style="object-fit: cover; filter: brightness(0.6);" alt="Ngaji Anak">
+                style="object-fit: cover; filter: brightness(0.6);" alt="Ngaji Anak" loading="lazy">
             <div class="carousel-caption d-flex flex-column justify-content-center h-100 top-0">
                 <div class="container">
                     <h1 class="display-3 fw-bold mb-3">Pendidikan Al-Qur'an</h1>
@@ -171,7 +171,8 @@ function tgl_indo($tanggal)
             <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
                 <div class="position-relative">
                     <img src="/asset/images/kasih-sayang.webp" alt="About Masjid"
-                        class="img-fluid rounded-4 shadow-lg w-100" style="min-height: 400px; object-fit: cover;">
+                        class="img-fluid rounded-4 shadow-lg w-100" style="min-height: 400px; object-fit: cover;"
+                        loading="lazy">
                     <div class="position-absolute bottom-0 start-0 bg-white p-4 rounded-top-end-4 shadow m-3">
                         <h1 class="text-success fw-bold display-4 mb-0">25</h1>
                         <p class="mb-0 text-muted fw-bold">Tahun Melayani</p>
@@ -284,7 +285,7 @@ function tgl_indo($tanggal)
                     <div class="position-relative">
                         <img src="/asset/images/kajian_masjid.webp" class="card-img-top" alt="Kajian"
                             onerror="this.src='https://images.unsplash.com/photo-1576764402964-b8575080c541?auto=format&fit=crop&w=400&q=80'"
-                            style="height: 220px; object-fit: cover;">
+                            style="height: 220px; object-fit: cover;" loading="lazy">
                         <span
                             class="position-absolute top-0 end-0 bg-warning text-dark fw-bold px-3 py-1 m-3 rounded-pill small">Mingguan</span>
                     </div>
@@ -304,7 +305,7 @@ function tgl_indo($tanggal)
                     <div class="position-relative">
                         <img src="/asset/images/jumaat_berkah.webp" class="card-img-top" alt="Jumat Berkah"
                             onerror="this.src='https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80'"
-                            style="height: 220px; object-fit: cover;">
+                            style="height: 220px; object-fit: cover;" loading="lazy">
                         <span
                             class="position-absolute top-0 end-0 bg-success text-white fw-bold px-3 py-1 m-3 rounded-pill small">Sosial</span>
                     </div>
@@ -323,7 +324,7 @@ function tgl_indo($tanggal)
                 <div class="card border-0 shadow-sm h-100 feature-card rounded-4 overflow-hidden">
                     <div class="position-relative">
                         <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                            class="card-img-top" alt="TPA" style="height: 220px; object-fit: cover;">
+                            class="card-img-top" alt="TPA" style="height: 220px; object-fit: cover;" loading="lazy">
                         <span
                             class="position-absolute top-0 end-0 bg-info text-dark fw-bold px-3 py-1 m-3 rounded-pill small">Pendidikan</span>
                     </div>
@@ -357,19 +358,19 @@ function tgl_indo($tanggal)
             <div class="col-md-8">
                 <img src="/asset/images/sholat-jamaah.webp"
                     class="img-fluid rounded-4 h-100 w-100 object-fit-cover hover-card shadow-sm" alt="Galeri 1"
-                    style="min-height: 300px; object-fit: cover;">
+                    style="min-height: 300px; object-fit: cover;" loading="lazy">
             </div>
             <div class="col-md-4">
                 <div class="row g-3 h-100">
                     <div class="col-12 h-50">
                         <img src="/asset/images/kajian_masjid.webp"
                             class="img-fluid rounded-4 h-100 w-100 object-fit-cover hover-card shadow-sm" alt="Galeri 2"
-                            style="object-fit: cover;">
+                            style="object-fit: cover;" loading="lazy">
                     </div>
                     <div class="col-12 h-50">
                         <img src="/asset/images/jumaat_berkah.webp"
                             class="img-fluid rounded-4 h-100 w-100 object-fit-cover hover-card shadow-sm" alt="Galeri 3"
-                            style="object-fit: cover;">
+                            style="object-fit: cover;" loading="lazy">
                     </div>
                 </div>
             </div>

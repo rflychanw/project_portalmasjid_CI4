@@ -24,7 +24,8 @@
             <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left">
                 <div class="position-relative">
                     <img src="/asset/images/depan-masjid2.webp" alt="Sejarah Masjid"
-                        class="img-fluid rounded-4 shadow-lg w-100 object-fit-cover" style="min-height: 400px;">
+                        class="img-fluid rounded-4 shadow-lg w-100 object-fit-cover" style="min-height: 400px;"
+                        loading="lazy">
                     <div
                         class="position-absolute bottom-0 end-0 bg-white p-4 rounded-top-start-4 shadow m-3 d-none d-md-block">
                         <div class="d-flex align-items-center">
@@ -160,7 +161,7 @@
                         <div class="card-body">
                             <div class="d-inline-block p-1 border border-2 border-success rounded-circle mb-3">
                                 <img src="<?= $p['img']; ?>" class="rounded-circle" width="120" height="120"
-                                    alt="<?= $p['nama']; ?>">
+                                    alt="<?= $p['nama']; ?>" loading="lazy">
                             </div>
                             <h5 class="fw-bold mb-1 text-dark"><?= $p['nama']; ?></h5>
                             <p class="text-success fw-medium mb-0"><?= $p['jabatan']; ?></p>

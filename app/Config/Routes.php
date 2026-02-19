@@ -20,5 +20,9 @@ $routes->group('admin', function ($routes) {
     $routes->get('login', 'Admin::login');
     $routes->get('infaq', 'Admin::infaq');
     $routes->get('jadwal', 'Admin::jadwal');
+    $routes->get('berita', 'Admin::berita');
+    $routes->get('berita/tambah', 'Admin::tambah_berita');
+    $routes->get('kegiatan', 'Admin::kegiatan');
+    $routes->get('kegiatan/tambah', 'Admin::tambah_kegiatan');
     $routes->get('/', 'Admin::index');
 });

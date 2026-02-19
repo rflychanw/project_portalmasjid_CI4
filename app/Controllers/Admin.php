@@ -8,7 +8,37 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Dashboard | Admin Masjid An Namiroh Firdaus',
-            'menu' => 'dashboard'
+            'menu' => 'dashboard',
+            'stats' => [
+                'total_berita' => 24,
+                'total_kegiatan' => 12,
+                'infaq_masuk' => 12500000,
+                'infaq_keluar' => 4200000,
+                'saldo' => 45750000
+            ],
+            'kegiatan_mendatang' => [
+                [
+                    'judul' => 'Kajian Rutin Malam Jumat',
+                    'sub' => 'Fiqih Ibadah',
+                    'tanggal' => '20 Feb 2024',
+                    'status' => 'Terjadwal',
+                    'icon' => 'bi-book',
+                    'color' => 'success'
+                ],
+                [
+                    'judul' => 'Baksos Ramadhan',
+                    'sub' => 'Sosial Kemasyarakatan',
+                    'tanggal' => '25 Feb 2024',
+                    'status' => 'Coming Soon',
+                    'icon' => 'bi-megaphone',
+                    'color' => 'primary'
+                ]
+            ],
+            'chart_data' => [
+                'labels' => ['Sep', 'Okt', 'Nov', 'Des', 'Jan', 'Feb'],
+                'masuk' => [5000000, 7500000, 6000000, 9000000, 11000000, 12500000],
+                'keluar' => [3000000, 4000000, 3500000, 5000000, 4500000, 4200000]
+            ]
         ];
         return view('admin/dashboard', $data);
     }
@@ -25,7 +55,12 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Kelola Infaq | Admin Masjid An Namiroh Firdaus',
-            'menu' => 'infaq'
+            'menu' => 'infaq',
+            'chart_data' => [
+                'labels' => ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4'],
+                'masuk' => [2500000, 3700000, 2100000, 4200000],
+                'keluar' => [1200000, 800000, 1500000, 700000]
+            ]
         ];
         return view('admin/infaq', $data);
     }
@@ -37,6 +72,42 @@ class Admin extends BaseController
             'menu' => 'jadwal'
         ];
         return view('admin/jadwal', $data);
+    }
+
+    public function berita(): string
+    {
+        $data = [
+            'title' => 'Kelola Berita | Admin Masjid An Namiroh Firdaus',
+            'menu' => 'berita'
+        ];
+        return view('admin/berita', $data);
+    }
+
+    public function tambah_berita(): string
+    {
+        $data = [
+            'title' => 'Tambah Berita | Admin Masjid An Namiroh Firdaus',
+            'menu' => 'berita'
+        ];
+        return view('admin/tambah_berita', $data);
+    }
+
+    public function kegiatan(): string
+    {
+        $data = [
+            'title' => 'Kelola Kegiatan | Admin Masjid An Namiroh Firdaus',
+            'menu' => 'kegiatan'
+        ];
+        return view('admin/kegiatan', $data);
+    }
+
+    public function tambah_kegiatan(): string
+    {
+        $data = [
+            'title' => 'Tambah Kegiatan | Admin Masjid An Namiroh Firdaus',
+            'menu' => 'kegiatan'
+        ];
+        return view('admin/tambah_kegiatan', $data);
     }
 
     public function logout(): string

@@ -3,51 +3,62 @@
 <?= $this->section('content'); ?>
 <div class="row g-4 mb-4">
     <!-- Stat Cards -->
-    <div class="col-md-3">
-        <div class="card stat-card border-0">
+    <div class="col-md-4 col-lg-2">
+        <div class="card stat-card border-0 bg-success text-white shadow-lg h-100">
+            <h6 class="opacity-75 fw-normal">Total Saldo</h6>
+            <h3 class="fw-bold mb-0">Rp <?= number_format($stats['saldo'], 0, ',', '.'); ?></h3>
+            <div class="mt-2 small">
+                <i class="bi bi-wallet2"></i> Saldo Kas
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-2">
+        <div class="card stat-card border-0 h-100">
             <div class="stat-icon bg-primary-subtle text-primary">
                 <i class="bi bi-newspaper"></i>
             </div>
-            <h6 class="text-muted fw-normal">Total Berita</h6>
-            <h3 class="fw-bold mb-0">24</h3>
-            <div class="mt-2 text-success small">
-                <i class="bi bi-arrow-up"></i> 12% dari bulan lalu
-            </div>
+            <h6 class="text-muted fw-normal">Berita</h6>
+            <h3 class="fw-bold mb-0"><?= number_format($stats['total_berita'], 0, ',', '.'); ?></h3>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="card stat-card border-0">
+    <div class="col-md-4 col-lg-2">
+        <div class="card stat-card border-0 h-100">
             <div class="stat-icon bg-success-subtle text-success">
                 <i class="bi bi-calendar-event"></i>
             </div>
-            <h6 class="text-muted fw-normal">Total Kegiatan</h6>
-            <h3 class="fw-bold mb-0">12</h3>
-            <div class="mt-2 text-success small">
-                <i class="bi bi-arrow-up"></i> 5% dari bulan lalu
-            </div>
+            <h6 class="text-muted fw-normal">Kegiatan</h6>
+            <h3 class="fw-bold mb-0"><?= number_format($stats['total_kegiatan'], 0, ',', '.'); ?></h3>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="card stat-card border-0">
+    <div class="col-md-6 col-lg-3">
+        <div class="card stat-card border-0 h-100">
             <div class="stat-icon bg-success-subtle text-success">
                 <i class="bi bi-arrow-down-left-circle"></i>
             </div>
             <h6 class="text-muted fw-normal">Infaq Masuk (Bulan Ini)</h6>
-            <h3 class="fw-bold mb-0 text-success">Rp 12,500,000</h3>
-            <div class="mt-2 text-success small">
-                <i class="bi bi-plus-circle"></i> Update terbaru hari ini
-            </div>
+            <h3 class="fw-bold mb-0 text-success">Rp <?= number_format($stats['infaq_masuk'], 0, ',', '.'); ?></h3>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="card stat-card border-0">
+    <div class="col-md-6 col-lg-3">
+        <div class="card stat-card border-0 h-100">
             <div class="stat-icon bg-danger-subtle text-danger">
                 <i class="bi bi-arrow-up-right-circle"></i>
             </div>
             <h6 class="text-muted fw-normal">Infaq Keluar (Bulan Ini)</h6>
-            <h3 class="fw-bold mb-0 text-danger">Rp 4,200,000</h3>
-            <div class="mt-2 text-danger small">
-                <i class="bi bi-dash-circle"></i> Pengeluaran operasional
+            <h3 class="fw-bold mb-0 text-danger">Rp <?= number_format($stats['infaq_keluar'], 0, ',', '.'); ?></h3>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <!-- Infaq Chart -->
+    <div class="col-lg-12">
+        <div class="card border-0">
+            <div class="card-header bg-transparent border-0 p-4 pb-0">
+                <h5 class="fw-bold mb-0">Statistik Infaq (6 Bulan Terakhir)</h5>
+            </div>
+            <div class="card-body p-4">
+                <canvas id="infaqChart" style="max-height: 350px;"></canvas>
             </div>
         </div>
     </div>
@@ -73,46 +84,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="bg-success-subtle p-2 rounded">
-                                            <i class="bi bi-book text-success"></i>
+                            <?php foreach ($kegiatan_mendatang as $kegiatan): ?>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="bg-<?= $kegiatan['color'] ?>-subtle p-2 rounded">
+                                                <i class="bi <?= $kegiatan['icon'] ?> text-<?= $kegiatan['color'] ?>"></i>
+                                            </div>
+                                            <div>
+                                                <div class="fw-bold"><?= $kegiatan['judul'] ?></div>
+                                                <div class="small text-muted"><?= $kegiatan['sub'] ?></div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <div class="fw-bold">Kajian Rutin Malam Jumat</div>
-                                            <div class="small text-muted">Fiqih Ibadah</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>20 Feb 2024</td>
-                                <td><span class="badge bg-success-subtle text-success border-0 px-3">Terjadwal</span>
-                                </td>
-                                <td>
-                                    <button class="btn btn-light btn-sm rounded-circle"><i
-                                            class="bi bi-pencil"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="bg-primary-subtle p-2 rounded">
-                                            <i class="bi bi-megaphone text-primary"></i>
-                                        </div>
-                                        <div>
-                                            <div class="fw-bold">Baksos Ramadhan</div>
-                                            <div class="small text-muted">Sosial Kemasyarakatan</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>25 Feb 2024</td>
-                                <td><span class="badge bg-primary-subtle text-primary border-0 px-3">Coming Soon</span>
-                                </td>
-                                <td>
-                                    <button class="btn btn-light btn-sm rounded-circle"><i
-                                            class="bi bi-pencil"></i></button>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td><?= $kegiatan['tanggal'] ?></td>
+                                    <td><span
+                                            class="badge bg-<?= $kegiatan['color'] ?>-subtle text-<?= $kegiatan['color'] ?> border-0 px-3"><?= $kegiatan['status'] ?></span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-light btn-sm rounded-circle"><i
+                                                class="bi bi-pencil"></i></button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -195,5 +189,104 @@
         background-color: rgba(13, 202, 240, 0.1) !important;
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const ctx = document.getElementById('infaqChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: <?= json_encode($chart_data['labels']) ?>,
+                datasets: [{
+                    label: 'Infaq Masuk',
+                    data: <?= json_encode($chart_data['masuk']) ?>,
+                    borderColor: '#198754',
+                    backgroundColor: 'rgba(25, 135, 84, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#198754'
+                }, {
+                    label: 'Infaq Keluar',
+                    data: <?= json_encode($chart_data['keluar']) ?>,
+                    borderColor: '#dc3545',
+                    backgroundColor: 'rgba(220, 53, 69, 0.05)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: {
+                                family: "'Plus Jakarta Sans', sans-serif",
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        padding: 12,
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        titleColor: '#334155',
+                        bodyColor: '#334155',
+                        borderColor: '#e2e8f0',
+                        borderWidth: 1,
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            drawBorder: false,
+                            color: 'rgba(0, 0, 0, 0.03)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return 'Rp ' + (value / 1000000) + 'jt';
+                            },
+                            font: {
+                                size: 11
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 11
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
 
 <?= $this->endSection(); ?>

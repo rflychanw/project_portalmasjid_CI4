@@ -37,6 +37,19 @@
     </div>
 </div>
 
+<div class="row g-4 mb-4">
+    <div class="col-12">
+        <div class="card border-0">
+            <div class="card-header bg-transparent border-0 p-4 pb-0">
+                <h5 class="fw-bold mb-0">Tren Infaq Mingguan (Bulan Ini)</h5>
+            </div>
+            <div class="card-body p-4">
+                <canvas id="weeklyInfaqChart" style="max-height: 250px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row g-4">
     <div class="col-12">
         <div class="card border-0">
@@ -149,5 +162,77 @@
         padding: 1.2rem 1rem;
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('weeklyInfaqChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: <?= json_encode($chart_data['labels']) ?>,
+                datasets: [{
+                    label: 'Pemasukan',
+                    data: <?= json_encode($chart_data['masuk']) ?>,
+                    backgroundColor: '#198754',
+                    borderRadius: 8,
+                    barThickness: 20
+                }, {
+                    label: 'Pengeluaran',
+                    data: <?= json_encode($chart_data['keluar']) ?>,
+                    backgroundColor: '#dc3545',
+                    borderRadius: 8,
+                    barThickness: 20
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: { family: "'Plus Jakarta Sans', sans-serif", size: 12 }
+                        }
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        padding: 12,
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        titleColor: '#334155',
+                        bodyColor: '#334155',
+                        borderColor: '#e2e8f0',
+                        borderWidth: 1,
+                        callbacks: {
+                            label: function (context) {
+                                let label = context.dataset.label || '';
+                                if (context.parsed.y !== null) {
+                                    label += ': ' + new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { drawBorder: false, color: 'rgba(0, 0, 0, 0.03)' },
+                        ticks: {
+                            callback: function (value) { return 'Rp ' + (value / 1000000) + 'jt'; },
+                            font: { size: 11 }
+                        }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { size: 11 } }
+                    }
+                }
+            }
+        });
+    });
+</script>
 
 <?= $this->endSection(); ?>

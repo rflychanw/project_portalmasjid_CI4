@@ -84,11 +84,11 @@
 
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 fw-bold text-success">Tautan</h5>
-                    <p><a href="/" class="text-white" style="text-decoration: none;">Beranda</a></p>
+                    <p><a href="/" class="text-white" style="text-decoration: none;">Berada</a></p>
                     <p><a href="/profil" class="text-white" style="text-decoration: none;">Profil</a></p>
                     <p><a href="/kegiatan" class="text-white" style="text-decoration: none;">Kegiatan</a></p>
                     <p><a href="/kontak" class="text-white" style="text-decoration: none;">Kontak</a></p>
-                    <p><a href="/admin/dashboard" class="text-white" style="text-decoration: none;">Panel Admin</a></p>
+                    <p><a href="/admin/login" class="text-white" style="text-decoration: none;">Login Admin</a></p>
                 </div>
 
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">

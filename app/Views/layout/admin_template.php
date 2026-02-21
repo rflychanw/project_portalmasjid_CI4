@@ -258,7 +258,10 @@
                 <i class="bi bi-house-door"></i>
                 <span>Lihat Website</span>
             </a>
-
+            <a href="/admin/login" class="nav-link text-danger">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+            </a>
         </div>
     </div>
 
@@ -281,7 +284,11 @@
                 <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
                     <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> Profil</a></li>
                     <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> Pengaturan</a></li>
-
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>
+                            Keluar</a></li>
                 </ul>
             </div>
         </div>

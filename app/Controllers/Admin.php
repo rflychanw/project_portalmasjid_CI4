@@ -43,6 +43,46 @@ class Admin extends BaseController
         return view('admin/dashboard', $data);
     }
 
+    public function login(): string|\CodeIgniter\HTTP\RedirectResponse
+    {
+        if (session()->get('logged_in')) {
+            return redirect()->to('/admin/dashboard');
+        }
+
+        $data = [
+            'title' => 'Login Admin | Masjid An Namiroh Firdaus'
+        ];
+        return view('admin/login', $data);
+    }
+
+    public function auth()
+    {
+        $username = $this->request->getPost('user_name');
+        $password = $this->request->getPost('password');
+
+        // Demo credentials
+        $demo_user = 'username';
+        $demo_pass = 'password123';
+
+        if ($username === $demo_user && $password === $demo_pass) {
+            $session_data = [
+                'username' => $username,
+                'logged_in' => TRUE
+            ];
+            session()->set($session_data);
+            return redirect()->to('/admin/dashboard');
+        } else {
+            session()->setFlashdata('error', 'Username atau Password salah!');
+            return redirect()->to('/admin/login');
+        }
+    }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/admin/login');
+    }
+
     public function infaq(): string
     {
         $data = [

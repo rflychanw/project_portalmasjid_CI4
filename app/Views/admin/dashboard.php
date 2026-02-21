@@ -2,50 +2,90 @@
 
 <?= $this->section('content'); ?>
 <div class="row g-4 mb-4">
-    <!-- Stat Cards -->
-    <div class="col-md-4 col-lg-2">
-        <div class="card stat-card border-0 bg-success text-white shadow-lg h-100">
-            <h6 class="opacity-75 fw-normal">Total Saldo</h6>
-            <h3 class="fw-bold mb-0">Rp <?= number_format($stats['saldo'], 0, ',', '.'); ?></h3>
-            <div class="mt-2 small">
-                <i class="bi bi-wallet2"></i> Saldo Kas
+    <!-- Row 1: Infaq Stats (Grid 2x2 part 1) -->
+    <div class="col-md-6">
+        <div class="card stat-card border-0 h-100 shadow-sm">
+            <div class="card-body p-4 d-flex align-items-center">
+                <div class="stat-icon bg-success-subtle text-success me-4">
+                    <i class="bi bi-arrow-down-left-circle"></i>
+                </div>
+                <div>
+                    <h6 class="text-muted fw-normal mb-1">Infaq Masuk (Bulan Ini)</h6>
+                    <h3 class="fw-bold mb-0 text-success">Rp <?= number_format($stats['infaq_masuk'], 0, ',', '.'); ?>
+                    </h3>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4 col-lg-2">
-        <div class="card stat-card border-0 h-100">
-            <div class="stat-icon bg-primary-subtle text-primary">
-                <i class="bi bi-newspaper"></i>
+    <div class="col-md-6">
+        <div class="card stat-card border-0 h-100 shadow-sm">
+            <div class="card-body p-4 d-flex align-items-center">
+                <div class="stat-icon bg-danger-subtle text-danger me-4">
+                    <i class="bi bi-arrow-up-right-circle"></i>
+                </div>
+                <div>
+                    <h6 class="text-muted fw-normal mb-1">Infaq Keluar (Bulan Ini)</h6>
+                    <h3 class="fw-bold mb-0 text-danger">Rp <?= number_format($stats['infaq_keluar'], 0, ',', '.'); ?>
+                    </h3>
+                </div>
             </div>
-            <h6 class="text-muted fw-normal">Berita</h6>
-            <h3 class="fw-bold mb-0"><?= number_format($stats['total_berita'], 0, ',', '.'); ?></h3>
         </div>
     </div>
-    <div class="col-md-4 col-lg-2">
-        <div class="card stat-card border-0 h-100">
-            <div class="stat-icon bg-success-subtle text-success">
-                <i class="bi bi-calendar-event"></i>
+
+    <!-- Row 2: Content Stats (Grid 2x2 part 2) -->
+    <div class="col-md-6">
+        <div class="card stat-card border-0 h-100 shadow-sm">
+            <div class="card-body p-4 d-flex align-items-center">
+                <div class="stat-icon bg-primary-subtle text-primary me-4">
+                    <i class="bi bi-newspaper"></i>
+                </div>
+                <div>
+                    <h6 class="text-muted fw-normal mb-1">Total Berita</h6>
+                    <h3 class="fw-bold mb-0"><?= number_format($stats['total_berita'], 0, ',', '.'); ?></h3>
+                </div>
             </div>
-            <h6 class="text-muted fw-normal">Kegiatan</h6>
-            <h3 class="fw-bold mb-0"><?= number_format($stats['total_kegiatan'], 0, ',', '.'); ?></h3>
         </div>
     </div>
-    <div class="col-md-6 col-lg-3">
-        <div class="card stat-card border-0 h-100">
-            <div class="stat-icon bg-success-subtle text-success">
-                <i class="bi bi-arrow-down-left-circle"></i>
+    <div class="col-md-6">
+        <div class="card stat-card border-0 h-100 shadow-sm">
+            <div class="card-body p-4 d-flex align-items-center">
+                <div class="stat-icon bg-warning-subtle text-warning me-4">
+                    <i class="bi bi-calendar-event"></i>
+                </div>
+                <div>
+                    <h6 class="text-muted fw-normal mb-1">Total Kegiatan</h6>
+                    <h3 class="fw-bold mb-0"><?= number_format($stats['total_kegiatan'], 0, ',', '.'); ?></h3>
+                </div>
             </div>
-            <h6 class="text-muted fw-normal">Infaq Masuk (Bulan Ini)</h6>
-            <h3 class="fw-bold mb-0 text-success">Rp <?= number_format($stats['infaq_masuk'], 0, ',', '.'); ?></h3>
         </div>
     </div>
-    <div class="col-md-6 col-lg-3">
-        <div class="card stat-card border-0 h-100">
-            <div class="stat-icon bg-danger-subtle text-danger">
-                <i class="bi bi-arrow-up-right-circle"></i>
+
+    <!-- Row 3: Hero Balance (Wide Card) -->
+    <div class="col-12">
+        <div class="card stat-card border-0 bg-success text-white shadow-lg overflow-hidden position-relative">
+            <div class="card-body p-4 p-md-5 position-relative" style="z-index: 2;">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h5 class="opacity-75 fw-normal mb-2 text-uppercase ls-1">Saldo Kas Masjid Saat Ini</h5>
+                        <h1 class="display-4 fw-bold mb-0">Rp <?= number_format($stats['saldo'], 0, ',', '.'); ?></h1>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-4 mt-md-0">
+                        <div
+                            class="d-inline-flex align-items-center p-3 rounded-4 bg-white bg-opacity-10 backdrop-blur">
+                            <i class="bi bi-wallet2 fs-1 me-3"></i>
+                            <div class="text-start">
+                                <div class="small opacity-75">Status Kas</div>
+                                <div class="fw-bold">Terverifikasi</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h6 class="text-muted fw-normal">Infaq Keluar (Bulan Ini)</h6>
-            <h3 class="fw-bold mb-0 text-danger">Rp <?= number_format($stats['infaq_keluar'], 0, ',', '.'); ?></h3>
+            <!-- Decorative Elements -->
+            <i class="bi bi-cash-stack position-absolute bottom-0 end-0 opacity-10 m-n4" style="font-size: 200px;"></i>
+            <div class="position-absolute top-0 start-0 w-100 h-100"
+                style="background: linear-gradient(45deg, rgba(25,135,84,1) 0%, rgba(31,164,102,1) 100%); z-index: 1;">
+            </div>
         </div>
     </div>
 </div>
@@ -151,47 +191,10 @@
     </div>
 </div>
 
-<style>
-    .custom-table thead th {
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        letter-spacing: 0.05em;
-        padding: 1.5rem 1rem;
-    }
-
-    .custom-table tbody td {
-        padding: 1.2rem 1rem;
-    }
-
-    .transition-all {
-        transition: all 0.2s ease;
-    }
-
-    .transition-all:hover {
-        background-color: #f1f5f9 !important;
-        transform: translateX(5px);
-    }
-
-    .bg-primary-subtle {
-        background-color: rgba(13, 110, 253, 0.1) !important;
-    }
-
-    .bg-success-subtle {
-        background-color: rgba(25, 135, 84, 0.1) !important;
-    }
-
-    .bg-warning-subtle {
-        background-color: rgba(255, 193, 7, 0.1) !important;
-    }
-
-    .bg-info-subtle {
-        background-color: rgba(13, 202, 240, 0.1) !important;
-    }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const ctx = document.getElementById('infaqChart').getContext('2d');
         new Chart(ctx, {
             type: 'line',
@@ -228,10 +231,7 @@
                         labels: {
                             usePointStyle: true,
                             padding: 20,
-                            font: {
-                                family: "'Plus Jakarta Sans', sans-serif",
-                                size: 12
-                            }
+                            font: { family: "'Plus Jakarta Sans', sans-serif", size: 12 }
                         }
                     },
                     tooltip: {
@@ -244,11 +244,9 @@
                         borderColor: '#e2e8f0',
                         borderWidth: 1,
                         callbacks: {
-                            label: function(context) {
+                            label: function (context) {
                                 let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
+                                if (label) { label += ': '; }
                                 if (context.parsed.y !== null) {
                                     label += new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(context.parsed.y);
                                 }
@@ -260,28 +258,15 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        grid: {
-                            drawBorder: false,
-                            color: 'rgba(0, 0, 0, 0.03)'
-                        },
+                        grid: { drawBorder: false, color: 'rgba(0, 0, 0, 0.03)' },
                         ticks: {
-                            callback: function(value) {
-                                return 'Rp ' + (value / 1000000) + 'jt';
-                            },
-                            font: {
-                                size: 11
-                            }
+                            callback: function (value) { return 'Rp ' + (value / 1000000) + 'jt'; },
+                            font: { size: 11 }
                         }
                     },
                     x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            font: {
-                                size: 11
-                            }
-                        }
+                        grid: { display: false },
+                        ticks: { font: { size: 11 } }
                     }
                 }
             }

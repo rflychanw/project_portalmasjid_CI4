@@ -43,14 +43,6 @@ class Admin extends BaseController
         return view('admin/dashboard', $data);
     }
 
-    public function login(): string
-    {
-        $data = [
-            'title' => 'Login Admin | Masjid An Namiroh Firdaus'
-        ];
-        return view('admin/login', $data);
-    }
-
     public function infaq(): string
     {
         $data = [
@@ -110,8 +102,4 @@ class Admin extends BaseController
         return view('admin/tambah_kegiatan', $data);
     }
 
-    public function logout(): string
-    {
-        return view('pages/home');
-    }
 }

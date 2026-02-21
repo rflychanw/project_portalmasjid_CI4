@@ -2,36 +2,46 @@
 
 <?= $this->section('content'); ?>
 <div class="row g-4 mb-4">
-    <div class="col-md-4">
-        <div class="card stat-card border-0 bg-success text-white shadow-lg h-100">
-            <h6 class="opacity-75 fw-normal">Total Saldo Infaq</h6>
-            <h2 class="fw-bold mb-0">Rp 45,750,000</h2>
-            <div class="mt-2 small">
-                <i class="bi bi-wallet2"></i> Saldo Kas Masjid An Namiroh
+    <div class="col-xl-4 col-md-6">
+        <div class="card stat-card border-0 bg-success text-white shadow-lg h-100 overflow-hidden position-relative">
+            <div class="card-body p-4 position-relative" style="z-index: 2;">
+                <h6 class="opacity-75 fw-normal mb-2">Total Saldo Infaq</h6>
+                <h2 class="fw-bold mb-3">Rp 45.750.000</h2>
+                <div class="d-flex align-items-center small opacity-75">
+                    <i class="bi bi-wallet2 me-2"></i>
+                    <span>Saldo Kas Masjid An Namiroh</span>
+                </div>
+            </div>
+            <i class="bi bi-cash-stack position-absolute bottom-0 end-0 opacity-10 m-n3" style="font-size: 100px;"></i>
+        </div>
+    </div>
+    <div class="col-xl-4 col-md-6">
+        <div class="card stat-card border-0 h-100 shadow-sm">
+            <div class="card-body p-4">
+                <div class="stat-icon bg-success-subtle text-success mb-3">
+                    <i class="bi bi-arrow-down-left-circle-fill"></i>
+                </div>
+                <h6 class="text-muted fw-normal mb-1">Total Pemasukan (Februari)</h6>
+                <h3 class="fw-bold mb-2 text-success">Rp 12.500.000</h3>
+                <div class="small text-success d-flex align-items-center">
+                    <i class="bi bi-graph-up me-1"></i>
+                    <span>Meningkat 15% dari Januari</span>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card stat-card border-0 h-100">
-            <div class="stat-icon bg-success-subtle text-success">
-                <i class="bi bi-arrow-down-left-circle-fill"></i>
-            </div>
-            <h6 class="text-muted fw-normal">Total Pemasukan (Februari)</h6>
-            <h3 class="fw-bold mb-0 text-success">Rp 12,500,000</h3>
-            <div class="mt-2 text-success small">
-                <i class="bi bi-graph-up"></i> Meningkat 15% dari Januari
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card stat-card border-0 h-100">
-            <div class="stat-icon bg-danger-subtle text-danger">
-                <i class="bi bi-arrow-up-right-circle-fill"></i>
-            </div>
-            <h6 class="text-muted fw-normal">Total Pengeluaran (Februari)</h6>
-            <h3 class="fw-bold mb-0 text-danger">Rp 4,200,000</h3>
-            <div class="mt-2 text-danger small">
-                <i class="bi bi-graph-down"></i> Stabil untuk bulan ini
+    <div class="col-xl-4 col-md-12">
+        <div class="card stat-card border-0 h-100 shadow-sm">
+            <div class="card-body p-4">
+                <div class="stat-icon bg-danger-subtle text-danger mb-3">
+                    <i class="bi bi-arrow-up-right-circle-fill"></i>
+                </div>
+                <h6 class="text-muted fw-normal mb-1">Total Pengeluaran (Februari)</h6>
+                <h3 class="fw-bold mb-2 text-danger">Rp 4.200.000</h3>
+                <div class="small text-danger d-flex align-items-center">
+                    <i class="bi bi-graph-down me-1"></i>
+                    <span>Stabil untuk bulan ini</span>
+                </div>
             </div>
         </div>
     </div>
@@ -160,6 +170,25 @@
 
     .custom-table tbody td {
         padding: 1.2rem 1rem;
+    }
+
+    .stat-card {
+        border-radius: 20px !important;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stat-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .bg-success-subtle {
+        background-color: rgba(25, 135, 84, 0.08) !important;
+    }
+
+    .bg-danger-subtle {
+        background-color: rgba(220, 53, 69, 0.08) !important;
     }
 </style>
 

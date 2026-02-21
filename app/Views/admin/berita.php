@@ -114,9 +114,5 @@
     .custom-table tbody td {
         padding: 1.2rem 1rem;
     }
-
-    .bg-success-subtle {
-        background-color: rgba(25, 135, 84, 0.1) !important;
-    }
 </style>
 <?= $this->endSection(); ?>

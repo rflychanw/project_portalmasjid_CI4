@@ -147,19 +147,49 @@
             transform: translateY(-5px);
         }
 
+        /* Stat Cards */
         .stat-card {
-            padding: 1.5rem;
+            border: none;
+            border-radius: 20px !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
         }
 
         .stat-icon {
             width: 48px;
             height: 48px;
-            border-radius: 12px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Color Utilities */
+        .bg-primary-subtle {
+            background-color: rgba(13, 110, 253, 0.08) !important;
+        }
+
+        .bg-success-subtle {
+            background-color: rgba(25, 135, 84, 0.08) !important;
+        }
+
+        .bg-danger-subtle {
+            background-color: rgba(220, 53, 69, 0.08) !important;
+        }
+
+        .bg-warning-subtle {
+            background-color: rgba(255, 193, 7, 0.08) !important;
+        }
+
+        .bg-info-subtle {
+            background-color: rgba(13, 202, 240, 0.08) !important;
         }
 
         /* Responsive */
@@ -174,6 +204,19 @@
 
             #content {
                 margin-left: 0;
+            }
+        }
+
+        /* Custom Grid for 5 Columns */
+        @media (min-width: 1200px) {
+            .custom-col-5 {
+                flex: 0 0 auto;
+                width: 20%;
+            }
+
+            .col-xl-2-5 {
+                flex: 0 0 auto;
+                width: 20%;
             }
         }
     </style>
@@ -215,10 +258,7 @@
                 <i class="bi bi-house-door"></i>
                 <span>Lihat Website</span>
             </a>
-            <a href="/admin/login" class="nav-link text-danger">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Logout</span>
-            </a>
+
         </div>
     </div>
 
@@ -241,11 +281,7 @@
                 <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
                     <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> Profil</a></li>
                     <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> Pengaturan</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>
-                            Keluar</a></li>
+
                 </ul>
             </div>
         </div>

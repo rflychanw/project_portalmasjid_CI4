@@ -20,6 +20,7 @@ $routes->group('admin', function ($routes) {
     $routes->get('login', 'Admin::login');
     $routes->post('login', 'Admin::auth');
     $routes->get('infaq', 'Admin::infaq');
+    $routes->post('infaq/simpan', 'Admin::simpan_infaq');
     $routes->get('jadwal', 'Admin::jadwal');
     $routes->get('berita', 'Admin::berita');
     $routes->get('berita/tambah', 'Admin::tambah_berita');

@@ -193,70 +193,150 @@
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+<!-- Modal Tambah Infaq -->
+<div class="modal fade" id="modalTambahInfaq" tabindex="-1" aria-labelledby="modalTambahInfaqLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+            <div class="modal-header border-0 p-4">
+                <h5 class="modal-title fw-bold" id="modalTambahInfaqLabel">Tambah Transaksi Infaq</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/admin/infaq/simpan" method="POST" id="formInfaq">
+                <div class="modal-body p-4 pt-0">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Tanggal</label>
+                        <input type="date" name="tanggal" class="form-control rounded-3 border-light bg-light" required
+                            value="<?= date('Y-m-d') ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Jenis Transaksi</label>
+                        <div class="d-flex gap-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="jenis" id="jenisMasuk" value="masuk"
+                                    checked>
+                                <label class="form-check-label" for="jenisMasuk">Pemasukan</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="jenis" id="jenisKeluar"
+                                    value="keluar">
+                                <label class="form-check-label" for="jenisKeluar">Pengeluaran</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Kategori / Sumber</label>
+                        <select name="kategori" class="form-select rounded-3 border-light bg-light" required>
+                            <option value="Jumat Berkah">Infaq Jumat Berkah</option>
+                            <option value="Kotak Amal">Kotak Amal Utama</option>
+                            <option value="Operasional">Biaya Operasional</option>
+                            <option value="Pembangunan">Pembiayaan Bangunan</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Keterangan</label>
+                        <textarea name="keterangan" class="form-control rounded-3 border-light bg-light" rows="3"
+                            placeholder="Contoh: Hamba Allah, Bayar Listrik, dll" required></textarea>
+                    </div>
+                    <div class="mb-0">
+                        <label class="form-label fw-semibold">Jumlah (Rp)</label>
+                        <div class="input-group">
+                            <span class="input-group-text border-0 bg-light rounded-start-3">Rp</span>
+                            <input type="number" name="jumlah" class="form-control rounded-end-3 border-light bg-light"
+                                placeholder="0" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 p-4 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success rounded-pill px-4 shadow-sm">Simpan Transaksi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+        <?php if (session()->getFlashdata('success')): ?>
+            Swal.fire({
+                icon: 'success',
+            title: 'Berhasil!',
+            text: '<?= session()->getFlashdata('success') ?>',
+            timer: 3000,
+            showConfirmButton: false,
+            border: 'none',
+            borderRadius: '15px'
+            });
+        <?php endif; ?>
+
+        document.addEventListener('DOMContentLoaded', function () {
+        // ... previous chart logic ...
         const ctx = document.getElementById('weeklyInfaqChart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',
-            data: {
-                labels: <?= json_encode($chart_data['labels']) ?>,
-                datasets: [{
-                    label: 'Pemasukan',
-                    data: <?= json_encode($chart_data['masuk']) ?>,
-                    backgroundColor: '#198754',
-                    borderRadius: 8,
-                    barThickness: 20
+        data: {
+            labels: <?= json_encode($chart_data['labels']) ?>,
+        datasets: [{
+            label: 'Pemasukan',
+        data: <?= json_encode($chart_data['masuk']) ?>,
+        backgroundColor: '#198754',
+        borderRadius: 8,
+        barThickness: 20
                 }, {
-                    label: 'Pengeluaran',
-                    data: <?= json_encode($chart_data['keluar']) ?>,
-                    backgroundColor: '#dc3545',
-                    borderRadius: 8,
-                    barThickness: 20
+            label: 'Pengeluaran',
+        data: <?= json_encode($chart_data['keluar']) ?>,
+        backgroundColor: '#dc3545',
+        borderRadius: 8,
+        barThickness: 20
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                        labels: {
-                            usePointStyle: true,
-                            padding: 20,
-                            font: { family: "'Plus Jakarta Sans', sans-serif", size: 12 }
+        options: {
+            responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+            position: 'top',
+        labels: {
+            usePointStyle: true,
+        padding: 20,
+        font: {family: "'Plus Jakarta Sans', sans-serif", size: 12 }
                         }
                     },
-                    tooltip: {
-                        mode: 'index',
-                        intersect: false,
-                        padding: 12,
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        titleColor: '#334155',
-                        bodyColor: '#334155',
-                        borderColor: '#e2e8f0',
-                        borderWidth: 1,
-                        callbacks: {
-                            label: function (context) {
-                                let label = context.dataset.label || '';
-                                if (context.parsed.y !== null) {
-                                    label += ': ' + new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(context.parsed.y);
+        tooltip: {
+            mode: 'index',
+        intersect: false,
+        padding: 12,
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        titleColor: '#334155',
+        bodyColor: '#334155',
+        borderColor: '#e2e8f0',
+        borderWidth: 1,
+        callbacks: {
+            label: function (context) {
+            let label = context.dataset.label || '';
+        if (context.parsed.y !== null) {
+            label += ': ' + new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(context.parsed.y);
                                 }
-                                return label;
+        return label;
                             }
                         }
                     }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: { drawBorder: false, color: 'rgba(0, 0, 0, 0.03)' },
-                        ticks: {
-                            callback: function (value) { return 'Rp ' + (value / 1000000) + 'jt'; },
-                            font: { size: 11 }
+        scales: {
+            y: {
+            beginAtZero: true,
+        grid: {drawBorder: false, color: 'rgba(0, 0, 0, 0.03)' },
+        ticks: {
+            callback: function (value) { return 'Rp ' + (value / 1000000) + 'jt'; },
+        font: {size: 11 }
                         }
                     },
-                    x: {
-                        grid: { display: false },
-                        ticks: { font: { size: 11 } }
+        x: {
+            grid: {display: false },
+        ticks: {font: {size: 11 } }
                     }
                 }
             }

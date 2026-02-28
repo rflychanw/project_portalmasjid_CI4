@@ -160,9 +160,10 @@
             style="min-height: 200px;">
             <div class="card-body p-4 position-relative" style="z-index: 2;">
                 <h5 class="fw-bold">Waktu Sholat</h5>
-                <p class="opacity-75">Update jadwal sholat hari ini</p>
-                <div class="display-4 fw-bold mb-3">15:42</div>
-                <div class="badge bg-white text-success px-3 py-2 rounded-pill fw-bold">Ashar - Sedang Berlangsung</div>
+                <p class="opacity-75 mb-1" id="location-text">Mendeteksi lokasi...</p>
+                <div class="display-4 fw-bold mb-3" id="live-clock">--:--</div>
+                <div class="badge bg-white text-success px-3 py-2 rounded-pill fw-bold" id="next-prayer-status">Memuat
+                    jadwal...</div>
             </div>
             <i class="bi bi-moon-stars position-absolute bottom-0 end-0 opacity-10"
                 style="font-size: 150px; margin-bottom: -40px; margin-right: -20px;"></i>
@@ -271,6 +272,91 @@
                 }
             }
         });
+
+        // --- Prayer Times & Clock Logic ---
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('live-clock').textContent = `${h}:${m}:${s}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        function getPrayerTimes(lat, lon) {
+            const date = new Date();
+            const timestamp = Math.floor(date.getTime() / 1000);
+            // Method 20 is Kemenag RI
+            fetch(`https://api.aladhan.com/v1/timings/${timestamp}?latitude=${lat}&longitude=${lon}&method=20`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code === 200) {
+                        const timings = data.data.timings;
+                        updatePrayerUI(timings);
+
+                        // Try to get address using reverse geocoding (optional but nice)
+                        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+                            .then(res => res.json())
+                            .then(geo => {
+                                const city = geo.address.city || geo.address.town || geo.address.village || geo.address.county || "Sekitar Anda";
+                                document.getElementById('location-text').textContent = city;
+                            })
+                            .catch(() => {
+                                document.getElementById('location-text').textContent = "Lokasi Terdeteksi";
+                            });
+                    }
+                })
+                .catch(err => {
+                    console.error('Error fetching prayer times:', err);
+                    document.getElementById('next-prayer-status').textContent = "Gagal memuat data";
+                });
+        }
+
+        function updatePrayerUI(timings) {
+            const now = new Date();
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+
+            const prayers = [
+                { name: 'Subuh', time: timings.Fajr },
+                { name: 'Dzuhur', time: timings.Dhuhr },
+                { name: 'Ashar', time: timings.Asr },
+                { name: 'Maghrib', time: timings.Maghrib },
+                { name: 'Isya', time: timings.Isha }
+            ];
+
+            let activePrayer = prayers[prayers.length - 1]; // Default to Isha (last night)
+
+            for (let i = 0; i < prayers.length; i++) {
+                const [h, m] = prayers[i].time.split(':').map(Number);
+                const prayerMinutes = h * 60 + m;
+
+                if (currentTime >= prayerMinutes) {
+                    activePrayer = prayers[i];
+                }
+            }
+
+            document.getElementById('next-prayer-status').textContent = `${activePrayer.name} - Sedang Berlangsung`;
+        }
+
+        // Get Location
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    getPrayerTimes(position.coords.latitude, position.coords.longitude);
+                },
+                (error) => {
+                    console.warn("Geolocation error:", error);
+                    // Default to Jakarta if denied
+                    getPrayerTimes(-6.2088, 106.8456);
+                    document.getElementById('location-text').textContent = "Jakarta (Default)";
+                }
+            );
+        } else {
+            // Default to Jakarta
+            getPrayerTimes(-6.2088, 106.8456);
+            document.getElementById('location-text').textContent = "Jakarta (Default)";
+        }
     });
 </script>
 

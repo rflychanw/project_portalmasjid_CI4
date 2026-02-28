@@ -97,6 +97,19 @@ class Admin extends BaseController
         return view('admin/infaq', $data);
     }
 
+    public function simpan_infaq()
+    {
+        // Simulasi simpan data
+        // $tanggal = $this->request->getPost('tanggal');
+        // $jenis = $this->request->getPost('jenis');
+        // $kategori = $this->request->getPost('kategori');
+        // $keterangan = $this->request->getPost('keterangan');
+        // $jumlah = $this->request->getPost('jumlah');
+
+        session()->setFlashdata('success', 'Transaksi infaq berhasil ditambahkan ke riwayat.');
+        return redirect()->to('/admin/infaq');
+    }
+
     public function jadwal(): string
     {
         $data = [

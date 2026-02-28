@@ -18,6 +18,8 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <link rel="icon" href="/asset/images/logo-masjid-2.webp">
+
     <style>
         :root {
             --primary-color: #0d6efd;
